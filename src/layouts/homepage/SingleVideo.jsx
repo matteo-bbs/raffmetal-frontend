@@ -125,7 +125,7 @@ const SingleVideo = ({ videoUrl }) => {
                 }}
             />
             <p
-                className={'bg-lRed p-2 rounded-2xl text-white'}
+                className={'bg-rPrimary p-2 rounded-2xl text-white'}
                 style={{
                     position: "absolute",
                     left: "420px",

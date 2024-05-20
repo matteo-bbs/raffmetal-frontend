@@ -112,7 +112,7 @@ const SliderVideo = ({ slides }) => {
 
   return (
     <div
-      className="video-container"
+      className="video-container w-full"
       style={{
         position: isExpanded ? "fixed" : "relative",
         top: isExpanded ? "0" : "auto",
@@ -184,7 +184,7 @@ const SliderVideo = ({ slides }) => {
                 }}
             />
             <p
-                className={'bg-lRed p-2 rounded-2xl text-white'}
+                className={'bg-rPrimary p-2 rounded-2xl text-white'}
                 style={{
                     position: "absolute",
                     left: "420px",
@@ -199,6 +199,7 @@ const SliderVideo = ({ slides }) => {
       {!isExpanded ? (
         <button
           onClick={toggleExpand}
+          className="hidden"
           style={{
             position: "absolute",
             right: "10px",
@@ -234,6 +235,7 @@ const SliderVideo = ({ slides }) => {
         {slides.length > 1 && (
       <button
         onClick={handlePrev}
+        className={'hidden'}
         style={{
           position: "absolute",
           left: "10px",
@@ -284,34 +286,34 @@ const SliderVideo = ({ slides }) => {
         {/*    />*/}
         {/*)}*/}
       {/*    {currentSlide < slides.length - 1 && ( */}
-        {slides.length > 1 && (
-      <button
-        onClick={handleNext}
-        style={{
-          position: "absolute",
-          right: "10px",
-          top: "50%",
-          zIndex: 1000,
-          color: "white",
-          transform: "translateY(-50%)",
-          backgroundColor: "#e40428",
-          padding: 6,
-          borderRadius: "50%",
-          opacity: !!isExpanded ? 0 : 1,
-        }}
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="white"
-          strokeWidth="2"
-        >
-          <path d="M9 6l6 6-6 6" />
-        </svg>
-      </button>
-        )}
+      {/*  {slides.length > 1 && (*/}
+      {/*<button*/}
+      {/*  onClick={handleNext}*/}
+      {/*  style={{*/}
+      {/*    position: "absolute",*/}
+      {/*    right: "10px",*/}
+      {/*    top: "50%",*/}
+      {/*    zIndex: 1000,*/}
+      {/*    color: "white",*/}
+      {/*    transform: "translateY(-50%)",*/}
+      {/*    backgroundColor: "#e40428",*/}
+      {/*    padding: 6,*/}
+      {/*    borderRadius: "50%",*/}
+      {/*    opacity: !!isExpanded ? 0 : 1,*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <svg*/}
+      {/*    width="24"*/}
+      {/*    height="24"*/}
+      {/*    viewBox="0 0 24 24"*/}
+      {/*    fill="none"*/}
+      {/*    stroke="white"*/}
+      {/*    strokeWidth="2"*/}
+      {/*  >*/}
+      {/*    <path d="M9 6l6 6-6 6" />*/}
+      {/*  </svg>*/}
+      {/*</button>*/}
+      {/*  )}*/}
 
       {/*     )} */}
     </div>

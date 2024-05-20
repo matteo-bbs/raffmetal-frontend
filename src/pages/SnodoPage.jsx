@@ -4,7 +4,7 @@ import { Video } from "../components/Video.jsx";
 import { Documenti } from "../components/Documenti.jsx";
 import { SyncLoader } from "react-spinners";
 import ReactPaginate from 'react-paginate';
-import arrowright from "../assets/next.png";
+import arrowMenu from "../assets/arrowMenu.svg";
 import {Notizia} from "../components/Notizia.jsx";
 import React, {useEffect, useState, useRef} from "react";
 import * as PropTypes from "prop-types";
@@ -178,8 +178,8 @@ export const SnodoPage = () => {
                         {/*<Link className={'z-10 absolute bottom-5 left-5 py-5 px-10 uppercase bg-rPrimary text-white text-xl font-bold'} to={`/archivio/${id_sezione}`}>Archivio {matchedMenuItem.titolo_sezione} <img className={'right-0 top-1 inline-block'} src={arrowLeft} alt="Arrow Left" /></Link>*/}
                         <Link className={'z-10 absolute bottom-5 left-5 py-5 px-10 uppercase bg-rPrimary text-white text-xl font-normal w-[200px] flex justify-between'} to={`/archivio/${id_sezione}`}>Archivio <img className={'right-0 top-1 inline-block'} src={arrowLeft} alt="Arrow Left" /></Link>
 
-                        <img className={'absolute left-0 top-0 w-full h-full object-cover '} src={matchedMenuItem.field_sfondo_export.media_image}/>
-                        <h1 className={'w-full absolute top-3 left-0 p-5 text-lGrayDark font-bold text-3xl font-lTekneLDO'}>{matchedMenuItem.titolo_sezione}</h1>
+                        <img className={'absolute left-0 top-0 w-full h-full object-cover backdrop:bg-black bg-black bg-opacity-50 '} src={matchedMenuItem.field_sfondo_export.media_image}/>
+                        <h1 className={'w-full absolute top-3 left-0 p-5 text-lGrayDark font-bold text-3xl text-white font-lTekneLDO'}>{matchedMenuItem.titolo_sezione}</h1>
                         {isLoading ? (
                             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                 <SyncLoader color="#fff" loading={true} size={20} />
@@ -246,9 +246,9 @@ export const SnodoPage = () => {
 
                                             <p className={'text-white text-sm mt-2 relative z-10 w-2/3 max-h-10 overflow-hidden font-lPublicSans'} dangerouslySetInnerHTML={{ __html: (contenuto.field_aggiungi_i_contenuti_export.sottotitolo || contenuto.field_aggiungi_i_contenuti_export.body ? (contenuto.field_aggiungi_i_contenuti_export.sottotitolo ? contenuto.field_aggiungi_i_contenuti_export.sottotitolo : (contenuto.field_aggiungi_i_contenuti_export.body.substring(0, 60) + (contenuto.field_aggiungi_i_contenuti_export.body.length > 60 ? '...' : ''))) : '') }} />
                                             <img
-                                                src={arrowright}
+                                                src={arrowMenu}
                                                 alt="arrowright"
-                                                className="w-6 mt-2 relative z-10 relative left-0 arrownext"
+                                                className="w-2 mt-2 relative z-10 relative left-0 arrownext"
                                                 style={{ position: 'relative', transition: 'left 0.3s, opacity 0.3s' }}
                                             />
                                             {/*{isNovelty && <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full border border-white"></span>}*/}

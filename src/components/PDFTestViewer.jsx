@@ -25,7 +25,7 @@
 //     //         <div
 //     //             key={i}
 //     //             className={`page-preview cursor-pointer mb-4 ${
-//     //                 i === pageNumber ? "border-2 border-lRed rounded-[5px]" : " border border-lGrayDark rounded-[5px]"
+//     //                 i === pageNumber ? "border-2 border-rPrimary rounded-[5px]" : " border border-lGrayDark rounded-[5px]"
 //     //             }`}
 //     //             onClick={() => setPageNumber(i)}
 //     //         >
@@ -103,7 +103,7 @@
 //                     <p className="mx-4">Zoom Level: {zoomPercentage}%</p>
 //                 </div>
 //                 <Document
-//                     className="border-2 border-lRed mt-5 border-solid overflow-auto h-[865px] "
+//                     className="border-2 border-rPrimary mt-5 border-solid overflow-auto h-[865px] "
 //                     file={pdfUrl}
 //                     onLoadSuccess={onDocumentLoadSuccess}
 //                 >

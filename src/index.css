@@ -55,7 +55,7 @@ body {
 
 
 .close-button {
-  background-color: #e40428;
+  background-color: #72243D;
   border: none;
   border-radius: 50%;
   padding: 10px;
@@ -71,7 +71,7 @@ body {
 }
 
 .close-button:hover {
-  background-color: darkred;
+  background-color: #72243D;
 }
 
 .close-icon {

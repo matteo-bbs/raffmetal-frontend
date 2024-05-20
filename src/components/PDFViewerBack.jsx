@@ -21,7 +21,7 @@ function PDFViewer({ pdfUrl }) {
           <div
               key={i}
               className={`page-preview cursor-pointer mb-4 ${
-                  i === pageNumber ? "border-2 border-lRed" : ""
+                  i === pageNumber ? "border-2 border-rPrimary" : ""
               }`}
               onClick={() => setPageNumber(i)}
           >
@@ -49,7 +49,7 @@ function PDFViewer({ pdfUrl }) {
 
   return (
       <div className="flex h-96">
-        <div className="flex-1 border-2 border-lRed mt-5 border-solid">
+        <div className="flex-1 border-2 border-rPrimary mt-5 border-solid">
           <div className="mb-4 flex items-center">
             <button onClick={handleZoomIn} className="p-2 bg-gray-200 mr-2">
               Zoom In

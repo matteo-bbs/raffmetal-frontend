@@ -103,15 +103,15 @@ const updateNovitaCount = () => {
                             flex-wrap 
                             h-auto 
                             pb-1 
-                            ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" ? "w-full min-h-[110px] mb-2" : ""} 
+                            ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" ? "w-full mb-2" : ""} 
                             ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Orizzontale" ? "w-full" : ""}`}
                             key={item.id_sezione}>
                             <Link
                                 to={`/snodopage/${item.id_sezione}`}
-                                className={`w-full flex flex-wrap p-5 bg-rPrimary border-2 border-white hover-bg-white text-white  h-full relative  justify-between items-center transition-transform duration-300 relative`}
+                                className={`w-full flex flex-wrap p-0 bg-rPrimary border-2 border-white hover-bg-white text-white py-4  relative  justify-between items-center transition-transform duration-300 relative`}
                             >
                                 <span
-                                    className="h-auto font-roboto_slab text-xl hover-text-white text-white font-semibold leading-5 px-3 uppercase relative pe-7 text-left w-2/3">
+                                    className="h-auto font-roboto_slab text-lg hover-text-white text-white font-semibold leading-5 px-3 uppercase relative pe-7 text-left w-2/3">
                                   {item.titolo_sezione}
                                     {conteggioNovita[item.titolo_sezione] && (
                                         <div>
@@ -136,20 +136,20 @@ const updateNovitaCount = () => {
                             </Link>
                         </li>
                     ))}
-                {JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" && (
-                    <li
-                        className={`
-                            flex 
-                            flex-wrap 
-                            h-auto 
-                            pb-1 
-                            ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" ? "w-full min-h-[110px] mb-2" : ""} 
-                            ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Orizzontale" ? "w-full" : ""}`}
-                    >
+                {/*{JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" && (*/}
+                {/*    <li*/}
+                {/*        className={`*/}
+                {/*            flex */}
+                {/*            flex-wrap */}
+                {/*            h-auto */}
+                {/*            pb-1 */}
+                {/*            ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" ? "w-full min-h-[110px] mb-2" : ""} */}
+                {/*            ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Orizzontale" ? "w-full" : ""}`}*/}
+                {/*    >*/}
 
 
-                    </li>
-                )}
+                {/*    </li>*/}
+                {/*)}*/}
 
             </ul>
         </div>

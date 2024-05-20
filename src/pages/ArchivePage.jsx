@@ -121,12 +121,12 @@ export const ArchivePage = () => {
                         <img className={'absolute left-0 top-0 w-full h-full object-cover'} src={matchedMenuItem.field_sfondo_export.media_image}/>
                         <h1 className={'top-0 left-0 w-full absolute p-5 text-lGrayDark font-bold text-3xl font-lTekneLDO'}>Archivio {matchedMenuItem.titolo_sezione}</h1>
                         <table className={'relative border-collapse table-fixed w-full text-sm'}>
-                            <thead className={'bg-lGrayDark w-full'}>
+                            <thead className={'bg-rPrimary w-full'}>
                             <tr>
-                                <th className={'border-b bg-lGrayDark font-medium p-4 pl-8 pt-3 pb-3 text-white text-xl text-left font-lTekneLDO w-2/6'}>Area</th>
-                                <th className={'border-b bg-lGrayDark font-medium p-4 pl-8 pt-3 pb-3 text-white text-xl text-left font-lTekneLDO w-1/6'}>Tipologia</th>
-                                <th className={'border-b bg-lGrayDark font-medium p-4 pl-8 pt-3 pb-3 text-white text-xl text-left font-lTekneLDO w-1/6'}>Data</th>
-                                <th className={'border-b bg-lGrayDark font-medium p-4 pl-8 pt-3 pb-3 text-white text-xl text-left font-lTekneLDO w-5/6'}>Titolo</th>
+                                <th className={'border-b bg-rPrimary font-medium p-4 pl-8 pt-3 pb-3 text-white text-xl text-left font-lTekneLDO w-1/6'}>Area</th>
+                                <th className={'border-b bg-rPrimary font-medium p-4 pl-8 pt-3 pb-3 text-white text-xl text-left font-lTekneLDO w-1/6'}>Tipologia</th>
+                                <th className={'border-b bg-rPrimary font-medium p-4 pl-8 pt-3 pb-3 text-white text-xl text-left font-lTekneLDO w-1/6'}>Data</th>
+                                <th className={'border-b bg-rPrimary font-medium p-4 pl-8 pt-3 pb-3 text-white text-xl text-left font-lTekneLDO w-2/6'}>Titolo</th>
                             </tr>
                             </thead>
                             <tbody className={'space-y-4'}>
@@ -169,7 +169,7 @@ export const ArchivePage = () => {
                         ))}
                             </tbody>
                         </table>
-                        <Link className={'absolute bottom-5 left-5 py-5 px-10 uppercase bg-lGrayDark text-white text-xl font-bold'} to={`/snodopage/${id_sezione}`}>Sezione {matchedMenuItem.titolo_sezione} <img className={'right-0 top-1 inline-block'} src={arrowRed} alt="Arrow Left" /></Link>
+                        <Link className={'z-10 absolute bottom-5 left-5 py-5 px-10 uppercase bg-rPrimary text-white text-xl font-normal min-w-[250px] flex justify-between'} to={`/snodopage/${id_sezione}`}>Sezione {matchedMenuItem.titolo_sezione} <img className={'ms-5 right-0 top-1 inline-block'} src={arrowRed} alt="Arrow Left" /></Link>
 
                         {pageCount > 1 && (
                             <ReactPaginate

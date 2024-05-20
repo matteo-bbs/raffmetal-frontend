@@ -118,7 +118,7 @@ function App() {
       )}
 
       {totemType && totemType[0]?.layout === "Verticale" && (
-          <div className="App h-screen overflow-hidden bg-lGrayLight flex flex-wrap text-lTekneLDO">
+          <div className="App h-[1920px] w-[1080px] m-auto overflow-hidden bg-lGrayLight flex flex-wrap text-lTekneLDO">
             <div className={"w-full bg-rSecondary"}>
               <div className={'shadow-lg bg-white mb-5'}>
                 <Header layout={totemType[0]?.layout}/>
@@ -135,7 +135,7 @@ function App() {
                   <TimeClock/>
                 </div>
               </div>
-              <div className="flex h-[91vh] bg-rSecondary ps-10">
+              <div className="flex h-[91vh] bg-rSecondary ps-10 h-auto">
                 {/*<div className="menu h-auto inline-block flex justify-center items-center mb-10 w-full">*/}
                 <div className="flex justify-end w-full">
                   <div className="flex w-full">

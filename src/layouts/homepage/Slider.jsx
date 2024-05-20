@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {Link} from "react-router-dom";
-
+import background from "../../assets/background.svg";
 const Slidercomponent = ({ slides }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -68,13 +68,13 @@ const Slidercomponent = ({ slides }) => {
         >
             <Slider {...settings}>
                 {slides.map((slide, index) => (
-                    <div key={index} className="slide h-full relative" >
+                    <div key={index} className="slide h-full relative flex" >
                         <Link
                             to={'/modalpage'}
                             state={slide}
                             // onClick={() => handleOpenModal(slide)}
                             key={index}
-                            className="relative p-8 shadow-lg w-full h-full cursor-pointer block"
+                            className=" p-8 w-full h-full cursor-pointer block"
                             style={{ position: 'relative', width: '100%', height: '100%' }}
                             onMouseOver={(e) => {
                                 e.currentTarget.querySelector('img.arrownext').style.left = '10px';
@@ -90,24 +90,30 @@ const Slidercomponent = ({ slides }) => {
 
 
 
-                            <div className="absolute left-0 top-0 w-full h-full bg-lGrayDark opacity-70 z-10 backcard"
+                            <div className="absolute left-0 top-0 w-full h-full bg-white opacity-70 z-10 backcard"
                                  style={{ transition: 'opacity 0.3s' }}
                             ></div>
-                            <p className={'text-white mt-2 mb-2 text-sm font-semibold relative z-10 w-2/3 uppercase font-lPublicSans'} >
+                            <p className={'text-black mt-2 mb-2 text-sm font-semibold relative z-10 w-2/3 uppercase font-lPublicSans'} >
                                 {/*if there is type use or use bundle*/}
                                 {slide.tipo_della_notizia ? slide.tipo_della_notizia : slide.tipologia}
                             </p>
 
-                            <p className={'text-white mt-2 mb-2 text-sm font-semibold relative z-10 w-2/3 uppercase font-lTekneLDO'} >{slide.titolo_sezione}</p>
-                            <h1 className="text-xl font-semibold text-white uppercase relative z-10" dangerouslySetInnerHTML={{ __html: slide.title }}>
+                            <p className={'text-black mt-2 mb-2 text-sm font-semibold relative z-10 w-2/3 uppercase font-lTekneLDO'} >{slide.titolo_sezione}</p>
+                            <h1 className="text-4xl font-bold text-black uppercase relative z-10" dangerouslySetInnerHTML={{ __html: slide.title }}>
                             </h1>
-                            <p className={'text-white text-sm mt-2 relative z-10 w-2/3 max-h-30 font-lPublicSans'} dangerouslySetInnerHTML={{ __html: (slide.sottotitolo || slide.body ? (slide.sottotitolo ? slide.sottotitolo : (slide.body.substring(0, 60) + (slide.body.length > 60 ? '...' : ''))) : '') }} />
+                            <p className={'text-black text-sm mt-2 relative z-10 w-2/3 max-h-30 font-lPublicSans'} dangerouslySetInnerHTML={{ __html: (slide.sottotitolo || slide.body ? (slide.sottotitolo ? slide.sottotitolo : (slide.body.substring(0, 60) + (slide.body.length > 60 ? '...' : ''))) : '') }} />
                             <img
                                 src={arrowright}
                                 alt="arrowright"
-                                className="w-6 mt-2 relative z-10 relative left-0 arrownext"
+                                className="w-2 mt-5 relative z-10 relative left-0 arrownext"
                                 style={{ position: 'relative', transition: 'left 0.3s, opacity 0.3s' }}
                             />
+
+                            <img
+                                src={background}
+                                alt="background"
+                                className="mt-5 z-10 absolute bottom-0 left-0 arrownext"
+                                />
                         </Link>
                         {slide.immagine_anteprima &&
                         <img

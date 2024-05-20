@@ -339,7 +339,7 @@ export const FrontPage = ({layout}) => {
         <div className={`${layout === "Verticale" ? "flex-wrap" : ""}  h-full`}>
 
           {/*layout 2 colonne contenuto sinistra menu destra*/}
-          <div className={`${layout === "Verticale" ? "w-full" : "w-4/12"} bg-white shadow-2xl px-10 flex h-3/5 h-full`}>
+          <div className={`${layout === "Verticale" ? "w-full" : "w-4/12"} bg-white shadow-2xl px-10 flex h-3/5`}>
             {nascondiInEvidenza === '0' && !modalIsOpen && (
                 <div
                     className={`${layout === "Verticale" ? "w-6/12 mb-1" : "w-full mb-4"} bg-white flex-grow overflow-hidden`}>
@@ -354,7 +354,7 @@ export const FrontPage = ({layout}) => {
 
             {nascondiVideo === '0' && !modalIsOpen && (
                 <div
-                    className={`${layout === "Verticale" ? "w-6/12 px-10 mt-14" : "w-full mt-4"} aspect-[16/9]  overflow-hidden  `}>
+                    className={`${layout === "Verticale" ? "w-full px-10 mt-14" : "w-full mt-4"} aspect-[16/9]  overflow-hidden  `}>
                   <VideoEvidenza/>
                 </div>
             )}

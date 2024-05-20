@@ -5,8 +5,8 @@ import * as pdfjs from 'pdfjs-dist';
 import { thumbnailPlugin } from '@react-pdf-viewer/thumbnail';
 import {ZoomInIcon, ZoomOutIcon, zoomPlugin} from '@react-pdf-viewer/zoom';
 // Set the workerSrc globally
-// pdfjs.GlobalWorkerOptions.workerSrc = `/src/assets/pdf.worker.min.js`;
-pdfjs.GlobalWorkerOptions.workerSrc = `/assets/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `/src/assets/pdf.worker.min.js`;
+// pdfjs.GlobalWorkerOptions.workerSrc = `/assets/pdf.worker.min.js`;
 
 // Import necessary styles
 import '@react-pdf-viewer/core/lib/styles/index.css';
