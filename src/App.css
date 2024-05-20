@@ -1,0 +1,120 @@
+/* Slider.css */
+.slider-container {
+    width: 100%;
+    padding-bottom: 50px
+}
+
+.slider-content {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.slide {
+    min-width: 100%;
+}
+
+
+.react-pdf__Page__textContent.textLayer {
+    display: none;
+}
+
+
+.react-pdf__Page__annotations.annotationLayer {
+    display: none;
+}
+/*.react-pdf__Page__canvas {*/
+/*    width:  700px !important;*/
+/*    height: auto !important;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+.home .react-pdf__Page__canvas {
+    width:  100% !important;
+    height: auto !important;
+    margin: 0 auto;
+}
+
+.react-pdf__Page__canvas {
+    width:  auto !important;
+    /*height: 800px !important;*/
+    margin: 0 auto;
+}
+
+
+.slick-slider {
+    height: 100%;
+}
+.slick-list {
+    height: 100%;
+}
+.slick-list .slick-track {
+    height: 100%;
+}
+.slick-list .slick-track .slick-slide > div {
+    height: 100%;
+}
+
+
+.slick-dots {
+    display: flex!important;
+    z-index: 10!important;
+    position: relative!important;
+    left: 0px!important;
+    top: 10px!important;
+    margin-top: 20px!important;
+    text-align: left!important;
+}
+
+/*.slick-dots {*/
+/*    display: flex!important;*/
+/*    z-index: 10!important;*/
+/*    position: absolute!important;*/
+/*    left: 30px!important;*/
+/*    bottom: 15px!important;*/
+/*    margin-top: 20px!important;*/
+/*    text-align: left!important;*/
+/*}*/
+.slick-dots li{
+    width: 12px!important;
+    height: 12px!important;
+    margin-left: 2px!important;
+}
+.slick-dots li button::before {
+    border-radius: 50px!important;
+    border: solid 1px #72243D!important;
+    content: ""!important;
+    width: 12px!important;
+    height: 12px!important;
+    opacity: 1 !important;
+}
+.slick-dots li.slick-active button::before {
+    opacity: 1!important;
+    background: #72243D !important;
+    width: 14px!important;
+    height: 14px!important;
+    margin-top: -1px!important;
+}
+
+/* videojs.css */
+.video-js .vjs-volume-panel.vjs-volume-panel-horizontal {
+    width: 100px; /* Imposta la larghezza del controllo del volume */
+    height: 30px; /* Imposta l'altezza del controllo del volume */
+    display: flex;
+    align-items: center;
+}
+
+.video-js .vjs-volume-panel.vjs-volume-panel-horizontal .vjs-volume-control.vjs-control.vjs-volume-horizontal {
+    display: flex;
+    align-items: center;
+}
+
+
+.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+    opacity: 1 !important;
+}
+.video-js .vjs-volume-panel .vjs-volume-control {
+    opacity: 1 !important;
+    width: 5em;
+    height: 3em;
+}
+

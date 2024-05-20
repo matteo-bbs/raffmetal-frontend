@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',*/
+  /*  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',*/
+  /*  sans-serif;*/
+  /*-webkit-font-smoothing: antialiased;*/
+  /*-moz-osx-font-smoothing: grayscale;*/
+  /*font-family: 'Tekne LDO'!important;*/
+  font-family: 'Myriad Pro'!important;
+
+}
+
+
+/* CSS per l'animazione slide */
+.page-enter {
+  transform: translateX(100%);
+}
+
+.page-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-in;
+}
+
+.page-exit {
+  transform: translateX(0);
+}
+
+.page-exit-active {
+  transform: translateX(-100%);
+  transition: transform 300ms ease-out;
+}
+/*.close-button {*/
+/*  background-color: red;*/
+/*  border: none;*/
+/*  border-radius: 50%;*/
+/*  padding: 10px;*/
+/*  cursor: pointer;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  transition: background-color 0.3s;*/
+/*}*/
+/**/
+/*.close-button:hover {*/
+/*  background-color: darkred;*/
+/*}*/
+/**/
+/*.close-icon {*/
+/*  fill: white;*/
+/*}*/
+
+
+.close-button {
+  background-color: #e40428;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  outline: none; /* Rimuove il bordo attorno al pulsante */
+  position: fixed;
+  top: 35px;
+  right:35px;
+}
+
+.close-button:hover {
+  background-color: darkred;
+}
+
+.close-icon {
+  /*fill: white;*/
+  width: 22px; /* Larghezza dell'icona */
+  height: 22px; /* Altezza dell'icona */
+  vertical-align: middle; /* Per centrare l'icona verticalmente */
+  border: none
+}
+
+
+.pagination .active a {
+  background-color: #72243D; /* lDarkGray */
+  color: #FFFFFF; /* white */
+  height: 4rem; /* 8 */
+  width: 4rem; /* 8 */
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+}
+
+.pagination .active{
+  margin-left: 10px!important;
+  margin-right: 10px!important;
+}
+
+
+.pagination li a {
+  color: #72243D; /* lDarkGray */
+  background-color: #FFFFFF; /* white */
+  height: 4rem; /* 8 */
+  width: 4rem; /* 8 */
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+}
+
+.pagination li{
+  margin-left: 10px!important;
+  margin-right: 10px!important;
+}
+
+
+.page-preview .react-pdf__Page__canvas {
+  width: 215px!important;
+  height: auto!important;
+  margin: 0 auto!important;
+  border-radius: 5px!important;
+  overflow: hidden;
+}
+
+
+#rpv-core__popover-body-zoom {
+  top: 0px;
+  bottom: 0px;
+  height: 290px;
+}
+
+.rpv-zoom__popover-target-arrow{
+  display: none;
+}
