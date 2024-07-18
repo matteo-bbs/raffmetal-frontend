@@ -118,24 +118,46 @@ function App() {
       )}
 
       {totemType && totemType[0]?.layout === "Verticale" && (
-          <div className="App h-[1920px] w-[1080px] m-auto overflow-hidden bg-lGrayLight flex flex-wrap text-lTekneLDO">
+          <div className="App h-[1920px] w-[1080px] m-auto overflow-hidden bg-lGrayLight flex flex-wrap text-lTekneLDO relative">
             <div className={"w-full bg-rSecondary"}>
               <div className={'shadow-lg bg-white mb-5'}>
                 <Header layout={totemType[0]?.layout}/>
               </div>
-              <div className={"flex relative w-full bg-rSecondary px-10 mb-5"}>
+              {/*<div className={"flex relative w-full bg-rSecondary px-10 mb-5"}>*/}
+              {/*  /!*<div className={"flex relative w-full pb-6 -top-5 left-0 -mt-8"}>*!/*/}
+              {/*  <div*/}
+              {/*      className={*/}
+              {/*        "w-full text-rPrimary top-0 text-3xl text-left flex justify-start pe-14 pe-40 me-8"*/}
+              {/*      }*/}
+              {/*  >*/}
+              {/*    {localStorage.getItem("totemType") &&*/}
+              {/*        JSON.parse(localStorage.getItem("totemType"))[0].sito}*/}
+              {/*    <TimeClock/>*/}
+              {/*  </div>*/}
+              {/*</div>*/}
+
+
+              <div
+                  className={"flex relative w-full bg-rSecondary ps-10 px-5 mb-5 items-center justify-center content-center"}>
                 {/*<div className={"flex relative w-full pb-6 -top-5 left-0 -mt-8"}>*/}
                 <div
                     className={
-                      "w-full text-rPrimary top-0 text-3xl text-left flex justify-start pe-14 font-bold pe-40 me-8"
+                      "w-full text-rPrimary top-0 text-3xl text-left flex justify-between"
                     }
                 >
-                  {localStorage.getItem("totemType") &&
-                      JSON.parse(localStorage.getItem("totemType"))[0].sito}
-                  <TimeClock/>
+                  <div>
+
+                    {localStorage.getItem("totemType") &&
+                        JSON.parse(localStorage.getItem("totemType"))[0].sito}
+                  </div>
+                  <Link
+                      className={` flex flex-wrap px-5 py-0 h-[47px] w-[270px] border-2 border-rPrimary hover-bg-white text-black bg-rSecondary justify-between text-[18px] items-center transition-transform duration-300`}
+                      to={'/ricerca'}><span className={'mt-1.5'}>RICERCA</span> <img className={'flex ms-2 w-[18px] h-[18px] mt-1.5'}
+                                                   src={cercaIcon}/>
+                  </Link>
                 </div>
               </div>
-              <div className="flex h-[91vh] bg-rSecondary ps-10 h-auto">
+              <div className="flex h-full bg-rSecondary ps-10 h-auto">
                 {/*<div className="menu h-auto inline-block flex justify-center items-center mb-10 w-full">*/}
                 <div className="flex justify-end w-full">
                   <div className="flex w-full">
@@ -151,10 +173,15 @@ function App() {
                     </div>
                     <div className={"w-[5%]"}></div>
                     {totemType && (
-                        <div className={"w-[30%]"}>
-                          {totemType && <Menu idTotem={totemType}/>}
+                        <div className={"w-[313px]"}>
+                          <div className={'h-[1220px]'}>
+
+                            {totemType && <Menu idTotem={totemType}/>}
+                          </div>
+                          <div className={'h-[580px]'}>
 
                             <LinkUtili idTotem={totemType}/>
+                          </div>
                         </div>
                     )}
                   </div>

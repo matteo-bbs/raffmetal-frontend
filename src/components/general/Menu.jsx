@@ -25,7 +25,7 @@ const updateNovitaCount = () => {
     axios.get(`/menu-novita/${idTotem[0].idcontenuto}`, config)
         .then((response) => {
             const novitaContent = response.data.map(item => item);
-            console.log(novitaContent)
+            // console.log(novitaContent)
 
             const currentDate = new Date();
             //console.log(novitaContent)
@@ -62,12 +62,12 @@ const updateNovitaCount = () => {
 
         if (data !== null) {
             localStorage.setItem("menu", JSON.stringify(data));
-            console.log(data)
+            // console.log(data)
         }
     }
     if (data !== null) {
         localStorage.setItem("menu", JSON.stringify(data));
-        console.log(data)
+        // console.log(data)
     }
     useEffect(() => {
         updateNovitaCount();
@@ -91,27 +91,24 @@ const updateNovitaCount = () => {
     localStorage.setItem("ultimi-contenuti", JSON.stringify(lastData));
 
     return (
-        <div className={'w-full bg-white p-5 shadow-2xl'}>
-            <p className={"text-black font-bold mb-3 text-xl"}>Menu</p>
+        <div className={`${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" ? "h-full" : ""} w-full bg-white px-5 py-3 shadow-2xl`}>
+            <p className={"text-black font-bold mb-2 text-xl"}>Menu</p>
 
-            <ul className={`${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" ? "flex flex-wrap" : ""} ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Orizzontale" ? "space-y-4" : ""} w-full text-center`}>
+            <ul className={`${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" ? " " : ""} ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Orizzontale" ? "space-y-4" : ""} w-full text-center`}>
                 {data &&
                     data.map((item, index) => (
                         <li
                             className={`
-                            flex 
-                            flex-wrap 
-                            h-auto 
                             pb-1 
                             ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Verticale" ? "w-full mb-2" : ""} 
                             ${JSON.parse(localStorage.getItem("totemType"))[0].layout === "Orizzontale" ? "w-full" : ""}`}
                             key={item.id_sezione}>
                             <Link
                                 to={`/snodopage/${item.id_sezione}`}
-                                className={`w-full flex flex-wrap p-0 bg-rPrimary border-2 border-white hover-bg-white text-white py-4  relative  justify-between items-center transition-transform duration-300 relative`}
+                                className={`w-full flex flex-wrap p-0 bg-rPrimary border-2 border-white hover-bg-white text-white py-4  relative  justify-between items-center transition-transform duration-300 relative min-h-[85px] h-full pe-[40px]`}
                             >
                                 <span
-                                    className="h-auto font-roboto_slab text-lg hover-text-white text-white font-semibold leading-5 px-3 uppercase relative pe-7 text-left w-2/3">
+                                    className="h-auto font-roboto_slab text-lg hover-text-white text-white font-semibold leading-5 px-3 uppercase relative pe-7 text-left w-full ">
                                   {item.titolo_sezione}
                                     {conteggioNovita[item.titolo_sezione] && (
                                         <div>
@@ -123,13 +120,13 @@ const updateNovitaCount = () => {
                                 </span>
                                 {conteggioNovita[item.titolo_sezione] && (
                                     <span
-                                        className="ml-2 bg-lRed border-lRed font-bold text-white p-3 rounded-full w-3 h-3 text-xl absolute -top-3 -right-3  border-2 ">
+                                        className="ml-2 bg-rYellow font-bold text-white p-3 rounded-full w-3 h-3 text-xl absolute -top-3 -right-3 ">
                                         {/*<p className={'absolute -top-0.5 left-1.5 text-lg'}>{conteggioNovita[item.titolo_sezione]}</p>*/}
 
                                         {/*{conteggioNovita[item.titolo_sezione]}*/}
                   </span>
                                 )}
-                                <div className={'w-1/3'}>
+                                <div className={'absolute right-5 top-5'}>
                                     <img className={'right-0 top-1 inline-block relative right-0'} src={arrowLeft}
                                          alt="Arrow Left"/>
                                 </div>

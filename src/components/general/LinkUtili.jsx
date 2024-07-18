@@ -4,6 +4,7 @@ import axios from "./api.jsx";
 import arrowLeft from "../../assets/arrowMenu.svg";
 import ModalComponentIframe from "./ModalComponentIframe.jsx";
 import cercaIcon from "../../assets/cerca.png";
+import {TimeClock} from "../TimeClock.jsx";
 const LinkUtili = ({ idTotem }) => {
   const [data, setData] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -59,7 +60,7 @@ const LinkUtili = ({ idTotem }) => {
           Numeri di emergenza
         </p>
 
-      <ul className="space-y-4 w-full text-center bg-rPrimary p-5">
+      <ul className="space-y-4 w-full text-center bg-rPrimary p-5 min-h-[380px]">
         {data &&
           data.length > 0 &&
           data[0].field_numeri_di_emergenza_export.map((item, index) => {
@@ -77,11 +78,16 @@ const LinkUtili = ({ idTotem }) => {
             );
           })}
       </ul>
-            <Link
-                className={`h-[70px] mt-5 w-full flex flex-wrap p-5 border-2 border-rPrimary hover-bg-white text-black bg-rSecondary h-full  justify-between text-[18px] items-center transition-transform duration-300`}
-                to={'/ricerca'}>RICERCA <img className={'flex ms-2 w-[18px] h-[18px] mt-1.5'}
-                                             src={cercaIcon}/>
-            </Link>
+            {/*<Link*/}
+            {/*    className={`h-[70px] mt-5 w-full flex flex-wrap p-5 border-2 border-rPrimary hover-bg-white text-black bg-rSecondary h-full  justify-between text-[18px] items-center transition-transform duration-300`}*/}
+            {/*    to={'/ricerca'}>RICERCA <img className={'flex ms-2 w-[18px] h-[18px] mt-1.5'}*/}
+            {/*                                 src={cercaIcon}/>*/}
+            {/*</Link>*/}
+            <div className={'text-center pt-5'}>
+              <TimeClock/>
+
+            </div>
+
           </div>
 
 )}

@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import videotest from "./video.mp4";
 
 export const Notizia = (props) => {
+
+    console.log('test')
     function extractTextFromHtml(htmlString) {
         try {
             const parser = new DOMParser();
@@ -23,6 +25,8 @@ export const Notizia = (props) => {
         const thumbnails = document.querySelectorAll('.thumbnail');
         thumbnails[index].src = image;
     };
+
+    console.log(props)
 
 // console.log(props)
     return(

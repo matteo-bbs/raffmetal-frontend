@@ -26,6 +26,7 @@ export const InEvidenza = () => {
             axios.get(`/homepage/in-evidenza/${totemHomepageId[0].idcontenuto}`, config)
                 .then((response) => {
                     setContenuti(response.data);
+                    console.log(response.data)
                 })
                 .catch((error) => console.log(error))
                 .finally(() => {

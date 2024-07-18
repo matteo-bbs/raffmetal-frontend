@@ -110,162 +110,160 @@ const SliderVideo = ({ slides }) => {
         setIsMuted(newVolume === 0);
     };
 
-  return (
-    <div
-      className="video-container w-full"
-      style={{
-        position: isExpanded ? "fixed" : "relative",
-        top: isExpanded ? "0" : "auto",
-        left: isExpanded ? "0" : "auto",
-        zIndex: isExpanded ? 1000 : "auto",
-        width: isExpanded ? "100vw" : "100%", // Larghezza condizionale
-        height: isExpanded ? "100vh" : "100%", // Altezza condizionale
-      }}
-    >
-      {isExpanded && (
-        <>
-          <button
+    return (
+        <div
+            className="video-container bg-white"
             style={{
-              position: "absolute",
-              left: "30px",
-              bottom: 16,
-              zIndex: 1000,
-              color: "white",
-              transform: "translateY(-50%)",
-              backgroundColor: "#e40428",
-              borderRadius: "50%",
-              padding: 20,
+                position: isExpanded ? "fixed" : "relative",
+                top: isExpanded ? "0" : "auto",
+                left: isExpanded ? "0" : "auto",
+                zIndex: isExpanded ? 1000 : "auto",
+                width: isExpanded ? "100vw" : "100%", // Larghezza condizionale
+                height: isExpanded ? "100vh" : "100%", // Altezza condizionale
             }}
-            onClick={handlePlayPause}
-          >
-            {isPlaying ? (
-              <img src={pause} alt="pause" />
-            ) : (
-              <img src={play} alt="play" />
+        >
+            {isExpanded && (
+                <>
+                    <button
+                        style={{
+                            position: "absolute",
+                            left: "30px",
+                            bottom: 16,
+                            zIndex: 1000,
+                            color: "white",
+                            transform: "translateY(-50%)",
+                            backgroundColor: "#e40428",
+                            borderRadius: "50%",
+                            padding: 20,
+                        }}
+                        onClick={handlePlayPause}
+                    >
+                        {isPlaying ? (
+                            <img src={pause} alt="pause" />
+                        ) : (
+                            <img src={play} alt="play" />
+                        )}
+                    </button>
+                    <button
+                        style={{
+                            position: "absolute",
+                            left: "130px",
+                            bottom: 16,
+                            zIndex: 1000,
+                            color: "white",
+                            transform: "translateY(-50%)",
+                            backgroundColor: "#e40428",
+                            borderRadius: "50%",
+                            padding: 20,
+                        }}
+                        onClick={handleMuteUnmute}
+                    >
+                        {isMuted || volume === 0 ? (
+                            <img src={mute} alt="Mute" />
+                        ) : (
+                            <img src={unmute} alt="Unmute" />
+                        )}
+
+
+
+                    </button>
+
+                    <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value={volume}
+                        onChange={handleVolumeChange}
+                        className="form-range appearance-none w-150 h-2 p-0 bg-red-500 focus:outline-none focus:ring-0 focus:shadow-none"
+                        style={{
+                            position: "absolute",
+                            left: "220px",
+                            bottom: "80px",
+                            zIndex: "1000",
+                        }}
+                    />
+                    <p
+                        className={'bg-lRed p-2 rounded-2xl text-white'}
+                        style={{
+                            position: "absolute",
+                            left: "420px",
+                            bottom: "65px",
+                            zIndex: "1000",
+                        }}
+                    >{Math.round(volume * 100)}%</p>
+
+                </>
             )}
-          </button>
-            <button
-                style={{
-                    position: "absolute",
-                    left: "130px",
-                    bottom: 16,
-                    zIndex: 1000,
-                    color: "white",
-                    transform: "translateY(-50%)",
-                    backgroundColor: "#e40428",
-                    borderRadius: "50%",
-                    padding: 20,
-                }}
-                onClick={handleMuteUnmute}
-            >
-                {isMuted || volume === 0 ? (
-                    <img src={mute} alt="Mute" />
-                ) : (
-                    <img src={unmute} alt="Unmute" />
-                )}
-
-
-
-            </button>
-
-            <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.01"
-                value={volume}
-                onChange={handleVolumeChange}
-                className="form-range appearance-none w-150 h-2 p-0 bg-red-500 focus:outline-none focus:ring-0 focus:shadow-none"
-                style={{
-                    position: "absolute",
-                    left: "220px",
-                    bottom: "80px",
-                    zIndex: "1000",
-                }}
-            />
-            <p
-                className={'bg-rPrimary p-2 rounded-2xl text-white'}
-                style={{
-                    position: "absolute",
-                    left: "420px",
-                    bottom: "65px",
-                    zIndex: "1000",
-                }}
-            >{Math.round(volume * 100)}%</p>
-
-        </>
-      )}
-      {/*     {currentSlide > 0 && ( */}
-      {!isExpanded ? (
-        <button
-          onClick={toggleExpand}
-          className="hidden"
-          style={{
-            position: "absolute",
-            right: "10px",
-            top: 32,
-            zIndex: 1000,
-            color: "white",
-            transform: "translateY(-50%)",
-            backgroundColor: "#e40428",
-            borderRadius: "50%",
-            padding: 6,
-          }}
-        >
-          <img src={expand} alt="expand" />
-        </button>
-      ) : (
-        <button
-          onClick={toggleExpand}
-          style={{
-            position: "absolute",
-            right: "10px",
-            top: "5%",
-            zIndex: 1000,
-            color: "white",
-            transform: "translateY(-50%)",
-            backgroundColor: "#e40428",
-            borderRadius: "50%",
-            padding: 12,
-          }}
-        >
-          <img src={reduce} alt="reduce" />
-        </button>
-      )}
-        {slides.length > 1 && (
-      <button
-        onClick={handlePrev}
-        className={'hidden'}
-        style={{
-          position: "absolute",
-          left: "10px",
-          top: "50%",
-          zIndex: 1000,
-          color: "white",
-          transform: "translateY(-50%)",
-          backgroundColor: "#e40428",
-          borderRadius: "50%",
-          padding: 6,
-          opacity: !!isExpanded ? 0 : 1,
-        }}
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="white"
-          strokeWidth="2"
-        >
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
-      </button>
-        )}
+            {/*     {currentSlide > 0 && ( */}
+            {!isExpanded ? (
+                <button
+                    onClick={toggleExpand}
+                    style={{
+                        position: "absolute",
+                        right: "10px",
+                        top: 32,
+                        zIndex: 1000,
+                        color: "white",
+                        transform: "translateY(-50%)",
+                        backgroundColor: "#e40428",
+                        borderRadius: "50%",
+                        padding: 6,
+                    }}
+                >
+                    <img src={expand} alt="expand" />
+                </button>
+            ) : (
+                <button
+                    onClick={toggleExpand}
+                    style={{
+                        position: "absolute",
+                        right: "10px",
+                        top: "5%",
+                        zIndex: 1000,
+                        color: "white",
+                        transform: "translateY(-50%)",
+                        backgroundColor: "#e40428",
+                        borderRadius: "50%",
+                        padding: 12,
+                    }}
+                >
+                    <img src={reduce} alt="reduce" />
+                </button>
+            )}
+            {slides.length > 1 && (
+                <button
+                    onClick={handlePrev}
+                    style={{
+                        position: "absolute",
+                        left: "10px",
+                        top: "50%",
+                        zIndex: 1000,
+                        color: "white",
+                        transform: "translateY(-50%)",
+                        backgroundColor: "#e40428",
+                        borderRadius: "50%",
+                        padding: 6,
+                        opacity: !!isExpanded ? 0 : 1,
+                    }}
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2"
+                    >
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+            )}
 
 
 
             <video
-                className="w-full h-full "
+                className="w-full h-full"
                 ref={videoRef}
                 src={slides[currentSlide].media_video_file.url}
                 autoPlay={true}
@@ -273,51 +271,51 @@ const SliderVideo = ({ slides }) => {
                 /*     controls */
                 muted={!isExpanded}
             />
-        {/*)}*/}
-        {/*{slides.length < 1 && (*/}
+            {/*)}*/}
+            {/*{slides.length < 1 && (*/}
 
-        {/*    <video*/}
-        {/*        className="w-full h-full "*/}
-        {/*        ref={videoRef}*/}
-        {/*        src={slides[currentSlide].media_video_file.url}*/}
-        {/*        autoPlay={true}*/}
+            {/*    <video*/}
+            {/*        className="w-full h-full "*/}
+            {/*        ref={videoRef}*/}
+            {/*        src={slides[currentSlide].media_video_file.url}*/}
+            {/*        autoPlay={true}*/}
 
-        {/*        muted={!isExpanded}*/}
-        {/*    />*/}
-        {/*)}*/}
-      {/*    {currentSlide < slides.length - 1 && ( */}
-      {/*  {slides.length > 1 && (*/}
-      {/*<button*/}
-      {/*  onClick={handleNext}*/}
-      {/*  style={{*/}
-      {/*    position: "absolute",*/}
-      {/*    right: "10px",*/}
-      {/*    top: "50%",*/}
-      {/*    zIndex: 1000,*/}
-      {/*    color: "white",*/}
-      {/*    transform: "translateY(-50%)",*/}
-      {/*    backgroundColor: "#e40428",*/}
-      {/*    padding: 6,*/}
-      {/*    borderRadius: "50%",*/}
-      {/*    opacity: !!isExpanded ? 0 : 1,*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  <svg*/}
-      {/*    width="24"*/}
-      {/*    height="24"*/}
-      {/*    viewBox="0 0 24 24"*/}
-      {/*    fill="none"*/}
-      {/*    stroke="white"*/}
-      {/*    strokeWidth="2"*/}
-      {/*  >*/}
-      {/*    <path d="M9 6l6 6-6 6" />*/}
-      {/*  </svg>*/}
-      {/*</button>*/}
-      {/*  )}*/}
+            {/*        muted={!isExpanded}*/}
+            {/*    />*/}
+            {/*)}*/}
+            {/*    {currentSlide < slides.length - 1 && ( */}
+            {slides.length > 1 && (
+                <button
+                    onClick={handleNext}
+                    style={{
+                        position: "absolute",
+                        right: "10px",
+                        top: "50%",
+                        zIndex: 1000,
+                        color: "white",
+                        transform: "translateY(-50%)",
+                        backgroundColor: "#e40428",
+                        padding: 6,
+                        borderRadius: "50%",
+                        opacity: !!isExpanded ? 0 : 1,
+                    }}
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2"
+                    >
+                        <path d="M9 6l6 6-6 6" />
+                    </svg>
+                </button>
+            )}
 
-      {/*     )} */}
-    </div>
-  );
+            {/*     )} */}
+        </div>
+    );
 };
 
 export default SliderVideo;

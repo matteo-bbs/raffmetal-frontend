@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 Modal.setAppElement('#root'); // replace '#root' with the id of your app's root element
 
 function ModalComponent({ isOpen, onRequestClose, children }) {
+
     return (
         <Modal
             isOpen={isOpen}

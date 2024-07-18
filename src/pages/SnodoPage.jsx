@@ -156,7 +156,7 @@ export const SnodoPage = () => {
         timerRef.current = setTimeout(() => {
             navigate('/');
         }, 2 * 60 * 1000); // 2 minuti
-        };
+    };
 
     useEffect(() => {
         window.addEventListener('click', resetTimer);
@@ -172,9 +172,9 @@ export const SnodoPage = () => {
     return (
         <div>
             <div className="flex h-[90vh]">
-                <div className=" w-full ">
+                <div className=" w-full  ">
 
-                    <div className="h-[85vh] flex flex-wrap basis gap-4 p-5 pt-20 relative pb-32">
+                    <div className="h-[1620px] flex flex-wrap gap-4 p-5 pt-20 relative pb-32 ">
                         {/*<Link className={'z-10 absolute bottom-5 left-5 py-5 px-10 uppercase bg-rPrimary text-white text-xl font-bold'} to={`/archivio/${id_sezione}`}>Archivio {matchedMenuItem.titolo_sezione} <img className={'right-0 top-1 inline-block'} src={arrowLeft} alt="Arrow Left" /></Link>*/}
                         <Link className={'z-10 absolute bottom-5 left-5 py-5 px-10 uppercase bg-rPrimary text-white text-xl font-normal w-[200px] flex justify-between'} to={`/archivio/${id_sezione}`}>Archivio <img className={'right-0 top-1 inline-block'} src={arrowLeft} alt="Arrow Left" /></Link>
 
@@ -205,7 +205,7 @@ export const SnodoPage = () => {
                                         <a
                                             onClick={() => handleOpenModal(contenuto.field_aggiungi_i_contenuti_export)}
                                             key={index}
-                                            className="relative p-8 shadow-lg w-1/2 h-1/4 cursor-pointer bg-rPrimary opacity-80 mt-5"
+                                            className="relative p-8 shadow-lg w-[48%] h-1/4 cursor-pointer bg-rPrimary opacity-80 mt-5"
                                             style={{ position: 'relative' }}
                                             onMouseOver={(e) => {
                                                 e.currentTarget.querySelector('img.arrownext').style.left = '10px';
@@ -221,25 +221,25 @@ export const SnodoPage = () => {
                                             <div className="absolute left-0 top-0 w-full  bg-rPrimary opacity-80 z-10 backcard"
                                                  style={{ transition: 'opacity 0.3s' }}
                                             ></div>
-                                            {isNovelty &&    <span className="z-10 ml-2 bg-lRed border-lRed font-bold text-white p-2 rounded-full w-4 h-4 text-xl absolute -top-2 -right-2  border-2">
+                                            {isNovelty &&    <span className="z-10 ml-2 bg-rYellow border-rYellow font-bold text-white p-2 rounded-full w-4 h-4 text-xl absolute -top-2 -right-2  border-2">
                     {/*{conteggioNovita[item.titolo_sezione]}*/}
                   </span>}
                                             <p className={'text-white mt-2 mb-2 text-sm font-semibold relative z-10 w-2/3 uppercase font-lTekneLDO'} >{matchedMenuItem.titolo_sezione}</p>
                                             {/*<p className={'text-white mt-2 mb-2 text-sm font-semibold relative z-10 w-2/3 uppercase font-lPublicSans'} dangerouslySetInnerHTML={{ __html: `${contenuto.field_aggiungi_i_contenuti_export.tipo_della_notizia} | ${new Date(contenuto.data_inizio).toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit' })}`}} ></p>*/}
                                             <p className={'text-white mt-2 mb-2 text-sm font-semibold relative z-10 w-2/3 uppercase font-lPublicSans'}>
-                                            {contenuto.field_aggiungi_i_contenuti_export.tipologia ? (
-                                                <span className=' text-white'>
+                                                {contenuto.field_aggiungi_i_contenuti_export.tipologia ? (
+                                                    <span className=' text-white'>
                                                     {contenuto.field_aggiungi_i_contenuti_export.tipologia} | {new Date(contenuto.data_inizio).toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit' })}
                                                 </span>
-                                            ) : contenuto.field_aggiungi_i_contenuti_export.tipologia ? (
-                                                <span className=' text-white'>
+                                                ) : contenuto.field_aggiungi_i_contenuti_export.tipologia ? (
+                                                    <span className=' text-white'>
                                                     {contenuto.field_aggiungi_i_contenuti_export.tipo_della_notizia} | {new Date(contenuto.data_inizio).toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit' })}
                                                 </span>
-                                            ) : (
-                                                <span className=' text-white'>
+                                                ) : (
+                                                    <span className=' text-white'>
                                                     Annuncio | {new Date(contenuto.data_inizio).toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit' })}
                                                 </span>
-                                            )}
+                                                )}
                                             </p>
                                             <h1 className="text-xl font-semibold text-white uppercase relative z-10" dangerouslySetInnerHTML={{ __html: contenuto.field_aggiungi_i_contenuti_export.title}}>
                                             </h1>
@@ -341,7 +341,7 @@ export const SnodoPage = () => {
                 )  : modalContent && modalContent.bundle === 'mercatino' ? (
                     <Mercatino content={modalContent} />
                 ) : (
-            <p>Contenuto non valido</p>
+                    <p>Contenuto non valido</p>
                 )}
                 <button onClick={handleCloseModal} className="close-button">
                     <svg

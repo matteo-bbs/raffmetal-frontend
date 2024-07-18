@@ -92,7 +92,7 @@ export const FrontPage = ({layout}) => {
 
                       const currentDate = new Date();
 
-                      console.log(fetchResult)
+                      // console.log(fetchResult)
                       fetchResult.novitaContents =
                           fetchResult.secondFetchResult.filter((content) => {
                             const dataInizio = new Date(content.data_inizio);
@@ -312,7 +312,7 @@ export const FrontPage = ({layout}) => {
     setNascondiVideo(JSON.parse(totemTypeDetail)[0].nascondi_video);
     setNascondiLinkUtili(JSON.parse(totemTypeDetail)[0].nascondi_link_utili);
     localStorage.setItem('nascondi_link', JSON.parse(totemTypeDetail)[0].nascondi_link_utili)
-    console.log('aggiorno prima volta');
+    // console.log('aggiorno prima volta');
 
     const intervalId = setInterval(() => {
       const totemTypeDetail = localStorage.getItem("totemType");
@@ -324,7 +324,7 @@ export const FrontPage = ({layout}) => {
         setNascondiLinkUtili(JSON.parse(totemTypeDetail)[0].nascondi_link_utili);
         localStorage.setItem('nascondi_link', JSON.parse(totemTypeDetail)[0].nascondi_link_utili)
 
-        console.log('aggiorno');
+        // console.log('aggiorno');
       }
     }, 120000); // Updating every 60 seconds (1 minute)
 
@@ -332,14 +332,13 @@ export const FrontPage = ({layout}) => {
   }, []);
 
 
-  console.log(JSON.parse(localStorage.getItem("totemType"))[0].layout)
 
   return (
       <div className={"h-full relative"}>
         <div className={`${layout === "Verticale" ? "flex-wrap" : ""}  h-full`}>
 
           {/*layout 2 colonne contenuto sinistra menu destra*/}
-          <div className={`${layout === "Verticale" ? "w-full" : "w-4/12"} bg-white shadow-2xl px-10 flex h-3/5`}>
+          <div className={`${layout === "Verticale" ? "w-full" : "w-4/12"} bg-white shadow-2xl px-10 flex h-[1220px]`}>
             {nascondiInEvidenza === '0' && !modalIsOpen && (
                 <div
                     className={`${layout === "Verticale" ? "w-6/12 mb-1" : "w-full mb-4"} bg-white flex-grow overflow-hidden`}>
@@ -350,11 +349,11 @@ export const FrontPage = ({layout}) => {
 
           <div className={`${layout === "Verticale" ? "" : "w-[3%]"} `}></div>
           <div
-              className={`${layout === "Verticale" ? "w-full mt-10 bg-white h-1/3" : "w-5/12 flex-col space-y-4"} flex shadow-2xl`}>
+              className={`${layout === "Verticale" ? "w-full mt-5 bg-white h-[440px]" : "w-5/12 flex-col space-y-4"} flex shadow-2xl`}>
 
             {nascondiVideo === '0' && !modalIsOpen && (
                 <div
-                    className={`${layout === "Verticale" ? "w-full px-10 mt-14" : "w-full mt-4"} aspect-[16/9]  overflow-hidden  `}>
+                    className={`${layout === "Verticale" ? "w-full px-5 py-2 pb-10" : "w-full mt-4"} aspect-[16/9]  overflow-hidden  `}>
                   <VideoEvidenza/>
                 </div>
             )}

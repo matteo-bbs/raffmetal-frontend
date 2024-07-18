@@ -79,7 +79,7 @@ const Search = () => {
     }, []);
     return (
         <div>
-        <div className="bg-white h-[85vh] overflow-hidden">
+        <div className="bg-white h-[1620px] overflow-hidden">
             {/*<div className={'flex w-full pe-96 ps-8 pb-6 bottom-0 left-0 absolute'}>*/}
             {/*    <div className={'w-1/3 text-black top-0 text-4xl text-right flex justify-start pe-14 mt-10 text-white'}>*/}
             {/*        <Link to={'/'} className={'text-white'}>*/}
@@ -124,7 +124,7 @@ const Search = () => {
             </form>
             <div className="">
                 <div className=" w-full">
-                    <div className="h-[51vh] p-5 relative">
+                    <div className="h-[1520px] p-5 relative">
                         <table className={'relative border-collapse table-fixed w-full text-sm'}>
                             <thead className={'bg-lGrayDark w-full'}>
                             <tr>

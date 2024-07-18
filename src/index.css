@@ -133,3 +133,7 @@ body {
 .rpv-zoom__popover-target-arrow{
   display: none;
 }
+
+.vjs-tech{
+  height: 100%!Important;
+}

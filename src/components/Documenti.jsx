@@ -8,7 +8,7 @@ export const Documenti = (props) => {
         try {
             const parser = new DOMParser();
             const parsedHtml = parser.parseFromString(htmlString, "text/html");
-            return parsedHtml.querySelector(".field__item").textContent;
+            return parsedHtml.querySelector("a").getAttribute('href');
         } catch (error) {
             console.error("Errore nell'estrazione del testo HTML:", error);
             return "Errore nell'estrazione del testo HTML";
@@ -18,6 +18,7 @@ export const Documenti = (props) => {
     // console.log(props)
 
     const url = `${BASE_URL}${extractTextFromHtml(props.content.allegato)}`
+    console.log(url)
     return(
         <div>
             <p className={'text-black font-semibold relative z-10 w-2/3 uppercase font-lTekneLDO mb-2'} dangerouslySetInnerHTML={{ __html: `${props.content.tipologia} `}} />

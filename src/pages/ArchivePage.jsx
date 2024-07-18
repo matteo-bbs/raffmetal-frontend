@@ -117,9 +117,9 @@ export const ArchivePage = () => {
             <div className="flex h-[90vh]">
                 <div className=" w-full">
 
-                    <div className="h-[85vh] p-5 pt-20 relative">
+                    <div className="h-[1620px] p-5 pt-20 relative">
                         <img className={'absolute left-0 top-0 w-full h-full object-cover'} src={matchedMenuItem.field_sfondo_export.media_image}/>
-                        <h1 className={'top-0 left-0 w-full absolute p-5 text-lGrayDark font-bold text-3xl font-lTekneLDO'}>Archivio {matchedMenuItem.titolo_sezione}</h1>
+                        <h1 className={'top-0 left-0 w-full absolute p-5 text-white font-bold text-3xl font-lTekneLDO'}>Archivio {matchedMenuItem.titolo_sezione}</h1>
                         <table className={'relative border-collapse table-fixed w-full text-sm'}>
                             <thead className={'bg-rPrimary w-full'}>
                             <tr>

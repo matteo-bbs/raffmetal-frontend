@@ -10,7 +10,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {Link} from "react-router-dom";
 import background from "../../assets/background.svg";
+import {BASE_URL} from "../../components/general/baseUrl.jsx";
+
 const Slidercomponent = ({ slides }) => {
+
+    console.log(slides)
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const [isScrolling, setIsScrolling] = useState(false);
@@ -60,6 +64,38 @@ const Slidercomponent = ({ slides }) => {
         afterChange: setCurrentSlide,
         onSwipe: () => {}
     };
+
+    // function extractTextAndImageFromHtml(htmlString) {
+    //     try {
+    //         const parser = new DOMParser();
+    //         const parsedHtml = parser.parseFromString(htmlString, "text/html");
+    //         const textContent = parsedHtml.querySelector(".field__item").textContent;
+    //         console.log('textContent' + textContent)
+    //         const pdfImageUrl = parsedHtml.querySelector(".pdfpreview-file").attributes[1].value;
+    //         console.log('pdfImageUrl' + pdfImageUrl)
+    //
+    //         return { textContent, pdfImageUrl };
+    //     } catch (error) {
+    //         console.error("Errore nell'estrazione del contenuto HTML:", error);
+    //         return { textContent: "Errore nell'estrazione del testo HTML", pdfImageUrl: "Errore nell'estrazione dell'immagine PDF" };
+    //     }
+    // }
+
+
+    console.log(slides)
+
+
+    function extractPdfImageFromHtml(htmlString) {
+        try {
+            const parser = new DOMParser();
+            const parsedHtml = parser.parseFromString(htmlString, "text/html");
+            return parsedHtml.querySelector(".pdfpreview-file").attributes[1].value;
+        } catch (error) {
+            console.error("Errore nell'estrazione del testo HTML:", error);
+            return "Errore nell'estrazione del testo HTML";
+        }
+    }
+
     return (
         <div
             className="slider-container h-full relative"
@@ -69,6 +105,7 @@ const Slidercomponent = ({ slides }) => {
             <Slider {...settings}>
                 {slides.map((slide, index) => (
                     <div key={index} className="slide h-full relative flex" >
+
                         <Link
                             to={'/modalpage'}
                             state={slide}
@@ -109,16 +146,23 @@ const Slidercomponent = ({ slides }) => {
                                 style={{ position: 'relative', transition: 'left 0.3s, opacity 0.3s' }}
                             />
 
-                            <img
-                                src={background}
-                                alt="background"
-                                className="mt-5 z-10 absolute bottom-0 left-0 arrownext"
+                            {console.log(slide)}
+                            {slide.bundle != 'documenti' ?
+                                <img src={slide.galleria_di_immagini[0].media_image} alt="background"
+                                     className="mt-5 z-10 absolute bottom-0 left-0 arrownext h-[77%] w-full object-cover"/>
+                                :
+                                <img
+                                    src={`${BASE_URL}${extractPdfImageFromHtml(slide.allegato)}`}
+                                    className="mt-5 z-10 absolute bottom-0 left-0 arrownext h-[77%] w-full object-cover"
                                 />
+
+                            }
+
                         </Link>
                         {slide.immagine_anteprima &&
-                        <img
-                            src={extractTextFromHtml(slide.immagine_anteprima)}
-                            className="top-0 left-0 w-full oject-cover  absolute z-0"
+                            <img
+                                src={extractTextFromHtml(slide.immagine_anteprima)}
+                                className="top-0 left-0 w-full oject-cover  absolute z-0"
                         />
                         }
                     </div>

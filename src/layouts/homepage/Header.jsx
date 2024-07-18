@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import cercaIcon from "../../assets/cerca.png";
 export const Header = ({layout}) => {
     return(
-        <div className={`${layout === "Verticale" ? "h-[5vh] bg-white" : "h-[15vh]"}  flex justify-between items-center align-middle px-10 `}>
+        <div className={`${layout === "Verticale" ? "h-[96px] bg-white" : "h-[15vh]"}  flex justify-end items-center align-middle px-0 `}>
             <div className="w-80 ">
                 <div className="py-8 text-center h-30">
                     <img src={logo} alt="logo" />

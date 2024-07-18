@@ -11,7 +11,8 @@ module.exports = {
         lGrayLight: '#39414C',
         lWhite: '#FFFFFF',
         rPrimary: "#72243D",
-        rSecondary: "#EFEFEF"
+        rSecondary: "#EFEFEF",
+        rYellow: "#F2A900"
 
       },
       fontFamily: {

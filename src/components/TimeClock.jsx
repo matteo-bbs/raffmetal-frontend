@@ -18,12 +18,19 @@ export const TimeClock = () => {
     const formattedTime = italianTime.format('HH:mm:ss');
     const formattedDate = italianTime.format('DD/MM/YYYY'); // Current date
 
-    return(
-        <div className=" w-52">
-            <div className="text-right flex">
-                <h1 className='me-4 ms-4 text-3xl font-bold text-rPrimary'>{formattedTime}</h1>
-                <h2 className='text-3xl font-bold text-rPrimary'>{formattedDate}</h2> {/* Display the current date */}
-            </div>
+    return (
+        // <div className=" w-52">
+        //     <div className="text-right flex">
+        //         <h1 className='me-4 ms-4 text-3xl text-rPrimary'>{formattedTime}</h1>
+        //         <h2 className='text-3xl text-rPrimary'>{formattedDate}</h2> {/* Display the current date */}
+        //     </div>
+        // </div>
+    <div className="w-full">
+        <div className="text-center flex">
+            <h1 className='me-4 text-3xl text-rPrimary'>{formattedTime}</h1>
+            <h2 className='text-3xl text-rPrimary'>{formattedDate}</h2> {/* Display the current date */}
         </div>
-    );
+    </div>
+)
+    ;
 }
