@@ -12,6 +12,7 @@ import {TimeClock} from "../components/TimeClock.jsx";
 import Modal from 'react-modal';
 import ModalComponent from "../components/general/ModalComponent.jsx";
 import arrowLeft from "../assets/arrowMenu.svg";
+import sfondosezioneinterna from "../assets/sfondo-sezione-interna.jpg"
 
 Modal.setAppElement('#root'); // replace '#root' with the id of your app's root element
 
@@ -49,7 +50,7 @@ export const SnodoPage = () => {
     }
 
     useEffect(() => {
-        const fetchAndUpdateContents = () => {
+        const fetchAndUpdateContents = (retryCount = 0) => {
             axios.get(`/contenuti/sezione/${id_sezione}`, config)
                 .then((response) => {
                     const contenutiSezioneIDs = response.data.map(item => item.field_contenuti_sezione_export.map(subitem => subitem.id)).flat();
@@ -67,7 +68,6 @@ export const SnodoPage = () => {
                                 const dataInizio = new Date(content.data_inizio);
                                 const dataFine = content.data_fine ? new Date(content.data_fine) : null;
 
-                                // Se dataFine è null o non è definita, considera il contenuto come non scaduto
                                 if (!dataFine || isNaN(dataFine)) {
                                     return dataInizio <= currentDate;
                                 } else {
@@ -76,12 +76,26 @@ export const SnodoPage = () => {
                             });
                             novitaContents.reverse();
 
-                            setContenuti(novitaContents);
-                            setIsLoading(false);
+                            if (novitaContents.length === 0 && retryCount < 5) { // Limita i tentativi per evitare loop infiniti
+                                console.log("Tentativo di ricaricamento contenuti...");
+                                fetchAndUpdateContents(retryCount + 1); // Riprova a caricare i contenuti
+                            } else {
+                                setContenuti(novitaContents);
+                                setIsLoading(false);
+                            }
                         });
-
+                })
+                .catch(error => {
+                    console.error("Errore nel caricamento dei contenuti", error);
+                    if (retryCount < 5) {
+                        console.log("Ritento caricamento a causa di un errore...");
+                        fetchAndUpdateContents(retryCount + 1); // Riprova in caso di errore
+                    } else {
+                        setIsLoading(false);
+                    }
                 });
         };
+
 
         fetchAndUpdateContents();
         const intervalId = setInterval(fetchAndUpdateContents, 120000);
@@ -251,7 +265,7 @@ export const SnodoPage = () => {
                                                 className="w-2 mt-2 relative z-10 relative left-0 arrownext"
                                                 style={{ position: 'relative', transition: 'left 0.3s, opacity 0.3s' }}
                                             />
-                                            {/*{isNovelty && <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full border border-white"></span>}*/}
+                                            {/*{isNovelty && <spaMn className="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full border border-white"></span>}*/}
 
                                         </a>
                                     );
@@ -261,6 +275,11 @@ export const SnodoPage = () => {
                             })
                         ) : (
                             <div className="bg-lGrayDark p-8 shadow-lg text-center w-full">
+                                <img
+                                    className={'absolute left-0 top-0 w-full h-full object-cover backdrop:bg-black bg-black bg-opacity-50 '}
+                                    src={sfondosezioneinterna}/>
+                                <h1 className={'w-full absolute top-3 left-0 p-5 text-lGrayDark font-bold text-3xl text-left text-white font-lTekneLDO'}>{matchedMenuItem.titolo_sezione}</h1>
+
                                 <h1 className="text-2xl font-semibold text-white">Nessun contenuto disponibile</h1>
                             </div>
                         )}

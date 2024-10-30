@@ -3,8 +3,8 @@ import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
-// pdfjs.GlobalWorkerOptions.workerSrc = "/src/assets/pdf.worker.min.js";
-pdfjs.GlobalWorkerOptions.workerSrc = "/assets/pdf.worker.min.js";
+pdfjs.GlobalWorkerOptions.workerSrc = "/src/assets/pdf.worker.min.js";
+// pdfjs.GlobalWorkerOptions.workerSrc = "/assets/pdf.worker.min.js";
 
 function PDFViewerHome({ pdfUrl, anteprimepagine }) {
   const [numPages, setNumPages] = useState(null);

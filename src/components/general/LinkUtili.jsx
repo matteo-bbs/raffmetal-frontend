@@ -53,7 +53,7 @@ const LinkUtili = ({ idTotem }) => {
 
 
   return (
-    <div className={"w-full bg-white px-5 py-5 mt-5 h-full relative"}>
+    <div className={"w-full bg-white px-5 py-1 mt-5 h-full relative"}>
       {isVisible === '0' && (
           <div className={"w-full"}>
         <p className={"text-black font-bold mb-3 text-xl"}>
@@ -68,12 +68,10 @@ const LinkUtili = ({ idTotem }) => {
               <li
                 key={index}
                 className={
-                  "h-auto pb-2 hover-bg-white text-white w-full h-full relative flex flex-wrap justify-center items-center transition-transform duration-300 relative text-[22px]"
+                  "h-auto pb-2 hover-bg-white text-white w-full h-full relative flex flex-wrap justify-center items-center transition-transform duration-300 relative text-[18px]"
                 }
               >
-                <span className="h-auto font-roboto_slab text-xl hover-text-black text-white font-medium leading-5 px-3 uppercase relative pe-7 text-[22px]">
-                  {item}
-                </span>
+                <span className="h-auto font-roboto_slab text-lg hover-text-black text-white font-medium leading-5 px-3 uppercase relative pe-7 text-[18px]" dangerouslySetInnerHTML={{ __html: item }} />
               </li>
             );
           })}

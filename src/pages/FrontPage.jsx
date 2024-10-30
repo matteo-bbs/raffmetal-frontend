@@ -353,13 +353,13 @@ export const FrontPage = ({layout}) => {
 
             {nascondiVideo === '0' && !modalIsOpen && (
                 <div
-                    className={`${layout === "Verticale" ? "w-full px-5 py-2 pb-10" : "w-full mt-4"} aspect-[16/9]  overflow-hidden  `}>
+                    className={`${layout === "Verticale" ? "w-full px-5 py-0 pb-0" : "w-full mt-4"} aspect-[16/9]  overflow-hidden  `}>
                   <VideoEvidenza/>
                 </div>
             )}
           </div>
           <div
-              className={'w-full text-black top-0 text-3xl text-left flex justify-start mt-5 me-4 overflow-hidden'}>
+              className={'w-full text-black top-0 text-3xl text-left flex justify-start mt-1 me-4 overflow-hidden'}>
             <RSSFeedComponent/>
           </div>
 

@@ -58,7 +58,7 @@ const Slidercomponent = ({ slides }) => {
         infinite: true,
         speed: 500,
         autoplay: true,
-        autoplaySpeed: 5000, // Aggiungi questa riga
+        autoplaySpeed: 20000, // Aggiungi questa riga
         slidesToShow: 1,
         slidesToScroll: 1,
         afterChange: setCurrentSlide,
@@ -111,7 +111,7 @@ const Slidercomponent = ({ slides }) => {
                             state={slide}
                             // onClick={() => handleOpenModal(slide)}
                             key={index}
-                            className=" p-8 w-full h-full cursor-pointer block"
+                            className=" p-0 w-full h-full cursor-pointer block"
                             style={{ position: 'relative', width: '100%', height: '100%' }}
                             onMouseOver={(e) => {
                                 e.currentTarget.querySelector('img.arrownext').style.left = '10px';
@@ -153,7 +153,7 @@ const Slidercomponent = ({ slides }) => {
                                 :
                                 <img
                                     src={`${BASE_URL}${extractPdfImageFromHtml(slide.allegato)}`}
-                                    className="mt-5 z-10 absolute bottom-0 left-0 arrownext h-[77%] w-full object-cover"
+                                    className="mt-3 z-10 relative bottom-0 left-0 arrownext h-full w-full object-contain object-top"
                                 />
 
                             }

@@ -74,9 +74,9 @@ const updateNovitaCount = () => {
         updateNovitaCount2();
         fetchAndUpdateMenu()
 
-        const intervalId = setInterval(updateNovitaCount, 120000);
-        const intervalId2 = setInterval(updateNovitaCount2, 120000);
-        const intervalId3 = setInterval(fetchAndUpdateMenu, 120000);
+        const intervalId = setInterval(updateNovitaCount, 30000);
+        const intervalId2 = setInterval(updateNovitaCount2, 30000);
+        const intervalId3 = setInterval(fetchAndUpdateMenu, 30000);
 
         return () => {
             clearInterval(intervalId);
@@ -105,7 +105,7 @@ const updateNovitaCount = () => {
                             key={item.id_sezione}>
                             <Link
                                 to={`/snodopage/${item.id_sezione}`}
-                                className={`w-full flex flex-wrap p-0 bg-rPrimary border-2 border-white hover-bg-white text-white py-4  relative  justify-between items-center transition-transform duration-300 relative min-h-[85px] h-full pe-[40px]`}
+                                className={`w-full flex flex-wrap p-0 bg-rPrimary border-2 border-white hover-bg-white text-white py-1  relative  justify-between items-center transition-transform duration-300 relative min-h-[85px] h-full pe-[40px]`}
                             >
                                 <span
                                     className="h-auto font-roboto_slab text-lg hover-text-white text-white font-semibold leading-5 px-3 uppercase relative pe-7 text-left w-full ">

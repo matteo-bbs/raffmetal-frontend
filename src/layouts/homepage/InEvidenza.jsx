@@ -22,11 +22,13 @@ export const InEvidenza = () => {
 
     const fetchData = () => {
         if (totemHomepageId && totemHomepageId[0]) {
-            setIsLoading(true);
             axios.get(`/homepage/in-evidenza/${totemHomepageId[0].idcontenuto}`, config)
                 .then((response) => {
-                    setContenuti(response.data);
-                    console.log(response.data)
+                    const newData = response.data;
+                    // Check if newData is different from current contenuti
+                    if (JSON.stringify(newData) !== JSON.stringify(contenuti)) {
+                        setContenuti(newData);
+                    }
                 })
                 .catch((error) => console.log(error))
                 .finally(() => {
@@ -38,10 +40,10 @@ export const InEvidenza = () => {
     useEffect(() => {
         fetchData(); // Fetch data immediately when component mounts
 
-        // Set up interval to fetch data every 5 minutes
+        // Set up interval to fetch data every 30 seconds
         const intervalId = setInterval(() => {
             fetchData();
-        }, 2 * 60 * 1000);
+        }, 120 * 1000); // 2 minuti
 
         // Clean up interval on component unmount
         return () => clearInterval(intervalId);
