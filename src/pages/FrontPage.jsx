@@ -359,7 +359,7 @@ export const FrontPage = ({layout}) => {
             )}
           </div>
           <div
-              className={'w-full text-black top-0 text-3xl text-left flex justify-start mt-1 me-4 overflow-hidden'}>
+              className={'w-full text-black top-0 text-3xl text-left flex justify-start mt-3.5 me-4 overflow-hidden'}>
             <RSSFeedComponent/>
           </div>
 

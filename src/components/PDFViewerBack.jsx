@@ -3,7 +3,8 @@ import { Document, Page, pdfjs } from "react-pdf";
 import arrowleft from "../assets/left.svg";
 import arrowright from "../assets/right.svg";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `/src/assets/pdf.worker.js`;
+// pdfjs.GlobalWorkerOptions.workerSrc = `/src/assets/pdf.worker.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = "/assets/pdf.worker.min.js";
 
 function PDFViewer({ pdfUrl }) {
   const [numPages, setNumPages] = useState(null);

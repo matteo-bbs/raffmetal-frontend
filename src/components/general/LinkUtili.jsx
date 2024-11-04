@@ -53,7 +53,7 @@ const LinkUtili = ({ idTotem }) => {
 
 
   return (
-    <div className={"w-full bg-white px-5 py-1 mt-5 h-full relative"}>
+    <div className={"w-full bg-white px-5 py-3 mt-5 h-full relative"}>
       {isVisible === '0' && (
           <div className={"w-full"}>
         <p className={"text-black font-bold mb-3 text-xl"}>
